@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ayalacon.modelo.Cliente" table="cli_clients ">
+		<id column="Id" name="id" type="integer" />
+		<property name="create_date" />
+		<property name="email" />
+		<property name="last_name" />
+		<property name="first_name" />
+		<property name="photo" />
+		<many-to-one name="Region">
+             <column name="id_region_fk"  />
+    </many-to-one>
+	</class>
+</hibernate-mapping>

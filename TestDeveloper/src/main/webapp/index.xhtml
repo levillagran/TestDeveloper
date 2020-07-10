@@ -5,14 +5,65 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-<h:head></h:head>
-<body>
-
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Test Dev </title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Lista Clientes"></h:outputText>
+	</h2>
 	<h:form>
-		<h:panelGroup>
-			<h3>This is a simple index page</h3>
-		</h:panelGroup>
-	</h:form>
+		<h:commandButton action="#{clienteControlador.nuevo()}" value="Nuevo Cliente"></h:commandButton>
 
-</body>
+		<h:dataTable value="#{clienteControlador.obtenerClientes()}" var="cliente" border="1">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{cliente.id}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Fecha creación</f:facet>
+				<h:outputText value="#{cliente.create_date}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">E-mail</f:facet>
+				<h:outputText value="#{cliente.email}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Apellido</f:facet>
+				<h:outputText value="#{cliente.last_name}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{cliente.first_name}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefono</f:facet>
+				<h:outputText value="#{cliente.telefono}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefono</f:facet>
+				<h:outputText value="#{cliente.photo}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Region</f:facet>
+				<h:outputText value="#{cliente.regionId}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandButton action="#{clienteControlador.editar(cliente.id)}"
+					value="Editar"></h:commandButton>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Eliminar</f:facet>
+				<h:commandButton action="#{clienteControlador.eliminar(cliente.id)}"
+					value="Eliminar"></h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
 </html>
